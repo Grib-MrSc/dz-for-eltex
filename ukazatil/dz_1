@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    int num;
+    unsigned char new_byte;
+    
+    printf("input positive number: ");
+    scanf("%d", &num);
+    
+    printf("input new third: ");
+    scanf("%hhu", &new_byte);
+    
+    unsigned char *byte_ptr = (unsigned char *)&num; // Создаем указатель на байты числа
+    
+    
+    
+    printf("\nchange third byte...\n");
+    byte_ptr[2] = new_byte; // Меняем третий байт
+    
+    printf("\nResult: %d\n", num);
+    printf("bytes after change:\n");
+    for(int i = 0; i < 4; i++) {
+        printf("byte %d: 0x%02X\n", i, byte_ptr[i]); // Выводим все 4 байта числа в шестнадцатеричном формате
+    }
+    
+    return 0;
+}
